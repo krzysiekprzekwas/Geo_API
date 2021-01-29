@@ -20,6 +20,7 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
+db.init_app(app)
 
 jwt = JWT(app, authenticate, identity)
 
@@ -28,7 +29,6 @@ api.add_resource(GeoDataList, '/geodata')
 api.add_resource(UserRegister, '/register')
 
 def main():
-    db.init_app(app)
     app.run(debug=True)
 
 if __name__ == '__main__':
