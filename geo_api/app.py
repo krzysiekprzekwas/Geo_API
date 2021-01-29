@@ -7,6 +7,8 @@ from geo_api.resources.geo_data_resource import GeoData, GeoDataList
 from geo_api.resources.user import UserRegister
 from geo_api.security import authenticate, identity
 
+from geo_api.db import db
+
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = postgresqlConfig
@@ -26,7 +28,6 @@ api.add_resource(GeoDataList, '/geodata')
 api.add_resource(UserRegister, '/register')
 
 def main():
-    from geo_api.db import db
     db.init_app(app)
     app.run(debug=True)
 
