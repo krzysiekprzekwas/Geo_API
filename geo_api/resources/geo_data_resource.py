@@ -19,12 +19,12 @@ class GeoData(Resource):
     def post(self, adress):
         item = GeoDataModel.find_by_adress(adress)
         if item:
-            return {'message': f'GeoData with this adress '{adress}' already exists.'}, 400
+            return {'message': f"GeoData with this adress '{adress}' already exists."}, 400
 
         data = GeoData.parser.parse_args()
 
         if data['adress'] is not adress:
-            return {'message': f'Different adress in url and in body. {adress} vs {data["adress"]}'}, 400
+            return {'message': f"Different adress in url and in body. {adress} vs {data["adress"]}"}, 400
         
         try:
             item = build_geo_data(adress)
