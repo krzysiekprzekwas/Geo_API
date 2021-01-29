@@ -24,7 +24,7 @@ class GeoData(Resource):
         data = GeoData.parser.parse_args()
 
         if data['adress'] is not adress:
-            return {'message': f"Different adress in url and in body. {adress} vs {data["adress"]}"}, 400
+            return {'message': "Different adress in url and in body. {} vs {}".format(adress, data["adress"])}, 400
         
         try:
             item = build_geo_data(adress)
