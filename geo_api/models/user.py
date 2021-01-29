@@ -1,4 +1,5 @@
-from db import db
+from geo_api.db import db
+
 
 class UserModel(db.Model):
     __tablename__ = 'users'

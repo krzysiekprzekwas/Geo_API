@@ -1,4 +1,4 @@
-from db import db
+from geo_api.db import db
 
 
 class GeoDataModel(db.Model):
