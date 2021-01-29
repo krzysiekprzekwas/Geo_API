@@ -2,7 +2,7 @@ from flask_restful import Resource, reqparse
 from flask_jwt import jwt_required
 
 from geo_api.models.geo_data_model import GeoDataModel
-from geo_api.resources import build_geo_data
+
 
 class GeoData(Resource):
     parser = reqparse.RequestParser()
@@ -24,8 +24,9 @@ class GeoData(Resource):
         data = GeoData.parser.parse_args()
 
         if data['adress'] is not adress:
-            return {'message': "Different adress in url and in body. {} vs {}".format(adress, data["adress"])}, 400
-        
+            return {'message': "Different adress in url and in body. {} vs {}".format(adress, data[
+                "adress"])}, 400
+
         try:
             item = build_geo_data(adress)
             item.save_to_db()
@@ -51,16 +52,16 @@ class GeoData(Resource):
                 item = build_geo_data(adress)
             else:
                 item.adress = data['adress']
-    
+
             item.save_to_db()
         except:
             return {"message": "An error occurred while updating the GeoData."}, 500
 
         return item.json()
 
+
 class GeoDataList(Resource):
-    
+
     @jwt_required()
     def get(self):
         return {'geoDates': [geodata.json() for geodata in GeoDataModel.query.all()]}
-        
