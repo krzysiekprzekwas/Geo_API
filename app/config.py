@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 postgresql = {'host': 'ec2-34-248-148-63.eu-west-1.compute.amazonaws.com',
          'user': 'vvxvykgemntkhb',
          'passwd': '563eebc36fbbf9fc68c632b89927f9146a5707bf1b77bb8cd2b35078ea92c5c5',

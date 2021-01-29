@@ -1,7 +1,8 @@
 from flask_restful import Resource, reqparse
 from flask_jwt import jwt_required
-from models.geo_data_model import GeoDataModel
-from build_geo_data import build_geo_data
+
+from app.models.geo_data_model import GeoDataModel
+from app.build_geo_data import build_geo_data
 
 class GeoData(Resource):
     parser = reqparse.RequestParser()
