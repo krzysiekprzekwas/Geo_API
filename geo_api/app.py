@@ -25,8 +25,10 @@ api.add_resource(GeoData, '/geodata/<string:adress>')
 api.add_resource(GeoDataList, '/geodata')
 api.add_resource(UserRegister, '/register')
 
-if __name__ == '__main__':
-    from db import db
+def main():
+    from geo_api.db import db
     db.init_app(app)
     app.run(debug=True)
 
+if __name__ == '__main__':
+    main()
