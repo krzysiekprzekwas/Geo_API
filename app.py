@@ -18,6 +18,7 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
+
 jwt = JWT(app, authenticate, identity)
 
 api.add_resource(GeoData, '/geodata/<string:adress>')
