@@ -2,10 +2,10 @@ from flask import Flask
 from flask_jwt import JWT
 from flask_restful import Api
 
-from app.config import postgresqlConfig
-from app.resources.geo_data_resource import GeoData, GeoDataList
-from app.resources.user import UserRegister
-from app.security import authenticate, identity
+from geo_api.config import postgresqlConfig
+from geo_api.resources.geo_data_resource import GeoData, GeoDataList
+from geo_api.resources.user import UserRegister
+from geo_api.security import authenticate, identity
 
 app = Flask(__name__)
 

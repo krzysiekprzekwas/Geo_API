@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
 
-from app.models.user import UserModel
+from geo_api.models.user import UserModel
 
 
 class UserRegister(Resource):

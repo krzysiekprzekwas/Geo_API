@@ -3,7 +3,7 @@ import json
 import ipaddress
 
 import config
-from app.models.geo_data_model import GeoDataModel
+from geo_api.models.geo_data_model import GeoDataModel
 
 def build_geo_data(adress: string):
     '''
