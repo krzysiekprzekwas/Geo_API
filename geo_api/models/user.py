@@ -17,6 +17,7 @@ class UserModel(db.Model):
         self.password = password
 
     def save_to_db(self):
+        # Plain password in DB. Not so secure, yet so convinient :-)
         db.session.add(self)
         db.session.commit()
 
