@@ -5,8 +5,8 @@ class GeoDataModel(db.Model):
     __tablename__ = 'geodates'
 
     id = db.Column(db.Integer, primary_key=True)
-    adress = db.Column(db.String(80))
-    adress_type = db.Column(db.String(4))
+    address = db.Column(db.String(80))
+    address_type = db.Column(db.String(4))
     continent_name = db.Column(db.String(80))
     country_name = db.Column(db.String(80))
     region_name = db.Column(db.String(80))
@@ -14,9 +14,9 @@ class GeoDataModel(db.Model):
     latitude = db.Column(db.Float())
     longitude = db.Column(db.Float())
 
-    def __init__(self, adress, adress_type, continent_name, country_name, region_name, latitude, longitude):
-        self.adress =adress
-        self.adress_type=adress_type
+    def __init__(self, address, address_type, continent_name, country_name, region_name, latitude, longitude):
+        self.address =address
+        self.address_type=address_type
         self.continent_name=continent_name
         self.country_name=country_name
         self.region_name=region_name
@@ -26,8 +26,8 @@ class GeoDataModel(db.Model):
     def json(self):
         return {
             'id'            : self.id, 
-            'adress'        : self.adress,
-            'adress_type'   : self.adress_type,
+            'address'        : self.address,
+            'address_type'   : self.address_type,
             'continent_name': self.continent_name,
             'country_name'  : self.country_name,
             'region_name'   : self.region_name,
@@ -36,8 +36,8 @@ class GeoDataModel(db.Model):
             }
 
     @classmethod
-    def find_by_adress(cls, adress):
-        return cls.query.filter_by(adress=adress).first()
+    def find_by_address(cls, address):
+        return cls.query.filter_by(address=address).first()
 
     def save_to_db(self):
         db.session.add(self)

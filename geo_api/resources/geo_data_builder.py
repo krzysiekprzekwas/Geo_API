@@ -5,21 +5,21 @@ import ipaddress
 import config
 from geo_api.models.geo_data_model import GeoDataModel
 
-def build_geo_data(adress: string):
+def build_geo_data(address: string):
     '''
     Helper function used for GeoData creation. FactoryPattern.
 
     Args:
-        Adress (str): IP or domain adress. Base adresses allowed only.
+        address (str): IP or domain address. Base addresses allowed only.
 
     Returns:
         Configured GeoDataModel object
     '''
 
-    if not validators.domain(adress) and not is_proper_ip:
-        raise ValueError("Adress is not valid domain or ip adress")
+    if not validators.domain(address) and not is_proper_ip:
+        raise ValueError("address is not valid domain or ip address")
 
-    r = requests.get(f"{config.ipstack_API_ADRESS}/{adress}?access_key={config.ipstack_API_KEY}")
+    r = requests.get(f"{config.ipstack_API_address}/{address}?access_key={config.ipstack_API_KEY}")
 
     if r.status_code != 200:
         raise Exception("External API not available")
@@ -27,7 +27,7 @@ def build_geo_data(adress: string):
     api_response = json.loads(r.text)
 
     item = GeoDataModel(
-            adress, 
+            address, 
             api_response['type'],  
             api_response['continent_name'],  
             api_response['country_name'], 
@@ -39,19 +39,19 @@ def build_geo_data(adress: string):
     return item
 
 
-def is_proper_ip(adress)
+def is_proper_ip(address)
     '''
-    Validator for IP adress
+    Validator for IP address
 
     Args:
-        Adress (str): IPv4 or IPv6. Base adresses allowed only.
+        address (str): IPv4 or IPv6. Base addresses allowed only.
 
     Returns:
         True/False
     '''
 
     try:
-        ip = ipaddress.ip_address(adress)
+        ip = ipaddress.ip_address(address)
         return True
     except ValueError:
         return False

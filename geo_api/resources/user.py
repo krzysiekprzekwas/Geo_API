@@ -4,7 +4,7 @@ from geo_api.models.user import UserModel
 
 
 class UserRegister(Resource):
-    parser = reqparse.RequestParser()  # only allow price changes, no name changes allowed
+    parser = reqparse.RequestParser()
     parser.add_argument('username', type=str, required=True, help='This field cannot be left blank')
     parser.add_argument('password', type=str, required=True, help='This field cannot be left blank')
 
