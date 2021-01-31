@@ -2,6 +2,9 @@ from geo_api.db import db
 
 
 class UserModel(db.Model):
+    '''
+    User model for database storage
+    '''
     __tablename__ = 'users'
     __table_args__ = {'extend_existing': True}
 

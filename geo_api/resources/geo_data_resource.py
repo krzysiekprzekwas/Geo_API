@@ -5,6 +5,9 @@ from geo_api.models.geo_data_model import GeoDataModel
 
 
 class GeoData(Resource):
+    '''
+    GeoData resource object for CRUD interactions
+    '''
     parser = reqparse.RequestParser()
     parser.add_argument('address', type=str, required=True, help='This field cannot be left blank')
 

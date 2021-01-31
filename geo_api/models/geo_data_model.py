@@ -2,6 +2,9 @@ from geo_api.db import db
 
 
 class GeoDataModel(db.Model):
+    '''
+    GeoData model for database storage
+    '''
     __tablename__ = 'geodates'
 
     id = db.Column(db.Integer, primary_key=True)

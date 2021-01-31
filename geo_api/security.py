@@ -2,6 +2,8 @@ from werkzeug.security import safe_str_cmp
 
 from geo_api.models.user import UserModel
 
+from flask_jwt import jwt
+
 
 def authenticate(username, password):
     user = UserModel.find_by_username(username)
@@ -11,7 +13,3 @@ def authenticate(username, password):
 def identity(payload):
     user_id = payload['identity']
     return UserModel.find_by_id(user_id)
-
-@jwt.error_handler
-def error_handler(e):
-    return "Authorization failed, try again later", 400
